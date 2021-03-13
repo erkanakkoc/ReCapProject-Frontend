@@ -2,18 +2,19 @@
     <span class="visually-hidden">Loading...</span>
 </div>
 
-<table *ngIf="dataLoaded==true" class="table">
-    <thead>
+<table *ngIf="dataLoaded==true" class="table table-striped table-hover">
+    <thead class="table-primary">
         <tr>
             <th>Brand Id</th>
             <th>Brand Name</th>
 
         </tr>
     </thead>
-    <tr *ngFor="let brand of brands">
-        <td>{{brand.brandId}}</td>
-        <td>{{brand.brandName}}</td>
-
-
-    </tr>
+    <tbody>
+        <tr *ngFor="let brand of brands">
+            <td>{{brand.brandId}}</td>
+            <td>{{brand.brandName}}</td>
+        </tr>
+    </tbody>
+    
 </table>

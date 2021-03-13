@@ -2,22 +2,27 @@
     <span class="visually-hidden">Loading...</span>
 </div>
 
-<table *ngIf="dataLoaded==true" class="table">
+<table *ngIf="dataLoaded==true" class="table table-striped table-hover">
     <thead>
         <tr>
             <th>Rental Id</th>
-            <th>Car Id</th>
-            <th>Customer Id</th>
+            <th>Brand Name</th>
+            <th>First Name</th>
+            <th>Last Name</th>
             <th>Rent Date</th>
             <th>Return Date</th>
         </tr>
     </thead>
-    <tr *ngFor="let rental of rentals">
-        <td>{{rental.rentalId}}</td>
-        <td>{{rental.carId}}</td>
-        <td>{{rental.customerId}}</td>
-        <td>{{rental.rentDate}}</td>
-        <td>{{rental.returnDate}}</td>
-
-    </tr>
+    <tbody>
+        <tr *ngFor="let rental of rentals">
+            <td>{{rental.rentalId}}</td>
+            <td>{{rental.brandName}}</td>
+            <td>{{rental.firstName}}</td>
+            <td>{{rental.lastName}}</td>
+            <td>{{rental.returnDate}}</td>
+            <td>{{rental.returnDate}}</td>
+    
+        </tr>
+    </tbody>
+    
 </table>

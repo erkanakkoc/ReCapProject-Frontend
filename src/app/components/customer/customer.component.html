@@ -2,7 +2,7 @@
     <span class="visually-hidden">Loading...</span>
 </div>
 
-<table *ngIf="dataLoaded==true" class="table">
+<table *ngIf="dataLoaded==true" class="table table-striped table-hover">
     <thead>
         <tr>
             <th>Customer Id</th>
@@ -12,12 +12,12 @@
 
         </tr>
     </thead>
-    <tr *ngFor="let customer of customers">
-        <td>{{customer.customerId}}</td>
-        <td>{{customer.userId}}</td>
-        <td>{{customer.companyName}}</td>
-        
-
-
-    </tr>
+    <tbody>
+        <tr *ngFor="let customer of customers">
+            <td>{{customer.customerId}}</td>
+            <td>{{customer.userId}}</td>
+            <td>{{customer.companyName}}</td>
+        </tr>
+    </tbody>
+    
 </table>
