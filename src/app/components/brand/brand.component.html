@@ -2,7 +2,7 @@
     <span class="visually-hidden">Loading...</span>
 </div>
 
-<table *ngIf="dataLoaded==true" class="table table-striped table-hover">
+<!-- <table *ngIf="dataLoaded==true" class="table table-striped table-hover">
     <thead class="table-primary">
         <tr>
             <th>Brand Id</th>
@@ -17,4 +17,12 @@
         </tr>
     </tbody>
     
-</table>
+</table> -->
+
+<ul *ngIf="dataLoaded==true" class="list-group"><h3 style="text-align: center;">Brands</h3>
+    <li [class]="getAllBrandClass()" routerLink = "/cars">All Brands</li>
+    <li (click)="setCurrentBrand(brand)"
+    routerLink = "/cars/brand/{{brand.brandId}}"
+    *ngFor="let brand of brands" 
+    [class]="getCurrentBrandClass(brand)">{{brand.brandName}}</li>
+</ul>

@@ -2,7 +2,7 @@
     <span class="visually-hidden">Loading...</span>
 </div>
 
-<table *ngIf="dataLoaded==true" class="table table-striped table-hover">
+<!-- <table *ngIf="dataLoaded==true" class="table table-striped table-hover">
     <thead>
         <tr>
             <th>Color Id</th>
@@ -18,4 +18,12 @@
         </tr>
     </tbody>
     
-</table>
+</table> -->
+
+<ul *ngIf="dataLoaded==true" class="list-group"><h3 style="text-align: center;">Colors</h3>
+    <li [class]="getAllColorClass()" routerLink = "/cars">All Colors</li>
+    <li (click)="setCurrentColor(color)"
+    routerLink = "/cars/color/{{color.colorId}}"
+    *ngFor="let color of colors" 
+    [class]="getCurrentColorClass(color)">{{color.colorName}}</li>
+</ul>
