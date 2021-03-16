@@ -5,7 +5,7 @@
 
 <div class="row" *ngIf="dataLoaded==true">
     <div *ngFor="let car of cars" class="card" style="width: 18rem;">
-        <img src="{{imageBasePath}}{{car.imagePath}}" class="card-img-top" alt={{car.description}}>
+        <img src="{{imageBasePath}}{{car.imagePath}}" class="card-img-top" width="320" height="200" alt={{car.description}}>
         <div class="card-body">
           <h5 class="card-title d-flex justify-content-center">{{car.carName}}</h5>
           <p class="card-text d-flex justify-content-center">{{car.description}}</p>

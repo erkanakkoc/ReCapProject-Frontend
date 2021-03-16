@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Car } from 'src/app/models/car';
+import { CarImage } from 'src/app/models/carImage';
+import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
 import { environment } from 'src/environments/environment';
 
@@ -12,6 +14,7 @@ import { environment } from 'src/environments/environment';
 export class CarComponent implements OnInit {
 
   cars:Car[] = [];
+  
   dataLoaded = false;
   imageBasePath = environment.baseUrl
 
@@ -60,5 +63,7 @@ getCarsBySelect(brandId:number, colorId:number){
     this.dataLoaded=true;
   })
 }
+
+
 
 }

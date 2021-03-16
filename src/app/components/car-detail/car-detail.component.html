@@ -9,7 +9,13 @@
       </div>
       <div class="carousel-inner">
         <div *ngFor="let car of cars" class="carousel-item active" data-bs-interval="10000">
-          <img src="{{imageBasePath}}{{car.imagePath}}" class="d-block w-100" width="640" height="480" alt="{{car.description}} Image">
+          <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div *ngFor="let image of carImages" class="carousel-item active">
+                <img src="{{imageBasePath}}{{image.imagePath}}" class="d-block w-100" alt="{{car.description}} Image">
+              </div>
+            </div>
+          </div>
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
