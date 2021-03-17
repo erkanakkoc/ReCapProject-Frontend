@@ -21,9 +21,9 @@
 </table> -->
 
 <!-- <div class="form-group">
-    <label for="color">Colors</label>
-    <select name="color" id="color" [(ngModel)]="colors"class="form-control">
-        <option value="" routerLink = "/cars">All Colors</option>
+    <label *ngIf="dataLoaded==true" for="color">Colors</label>
+    <select name="color" id="color" [(ngModel)]="colors" class="form-control">
+        <option value="" routerLink = "/cars" selected>All Colors</option>
         <option *ngFor="let color of colors" 
         [value]="color.colorId" 
         routerLink = "/cars/color/{{color.colorId}}">{{color.colorName}}</option>

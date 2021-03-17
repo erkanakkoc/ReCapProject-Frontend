@@ -14,13 +14,14 @@ import { environment } from 'src/environments/environment';
 export class CarDetailComponent implements OnInit {
   cars:Car[]=[];
   carImages:CarImage[]=[];
+  currentImage : CarImage;
   dataLoaded = false;
   imageBasePath = environment.baseUrl;
 
   constructor(
     private carService:CarService,
     private activatedRoute:ActivatedRoute,
-    private imageService:CarImageService
+    private imageService:CarImageService,
   ) { }
 
   ngOnInit(): void {
@@ -43,8 +44,24 @@ export class CarDetailComponent implements OnInit {
   getImagesByCarId(){
     
     this.imageService.getCarImages(this.activatedRoute.snapshot.params["carId"]).subscribe((response)=>{
-      this.carImages=response.data;
-      
+      this.carImages=response.data;      
     });
+  }
+
+  getCurrentImageClass(image:CarImage){
+    if(image==this.carImages[0]){
+      return "carousel-item active"
+    } else {
+      return "carousel-item"
     }
+  }
+
+  getButtonClass(image:CarImage){
+    if(image==this.carImages[0]){
+      return "active"
+    } else {
+      return ""
+    }
+  }
+
 }
