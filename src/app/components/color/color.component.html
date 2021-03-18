@@ -20,16 +20,20 @@
     
 </table> -->
 
-<!-- <div class="form-group">
+<div class="form-group">
     <label *ngIf="dataLoaded==true" for="color">Colors</label>
-    <select name="color" id="color" [(ngModel)]="colors" class="form-control">
+    <select name="color" id="filterText" [(ngModel)]="filterText" class="form-control">
         <option value="" routerLink = "/cars" selected>All Colors</option>
         <option *ngFor="let color of colors" 
-        [value]="color.colorId" 
+        [value]="color.colorName" 
         routerLink = "/cars/color/{{color.colorId}}">{{color.colorName}}</option>
     </select>
-</div> -->
-
+</div>
+<!-- <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Color Filter</label>
+    <input type="email" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Pick a color">
+  </div> -->
+<div>{{filterText}}</div>
 <ul *ngIf="dataLoaded==true" class="list-group"><h3 style="text-align: center;">Colors</h3>
     <li [class]="getAllColorClass()" routerLink = "/cars">All Colors</li>
     <li (click)="setCurrentColor(color)"
