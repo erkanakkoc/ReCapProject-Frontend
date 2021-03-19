@@ -18,11 +18,17 @@
     </tbody>
     
 </table> -->
+<div class="mb-3 mt-4">
+    <label for="exampleFormControlInput1" class="form-label">Brand Filter</label>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Pick a Brand">
+</div>
 
 <ul *ngIf="dataLoaded==true" class="list-group"><h3 style="text-align: center;">Brands</h3>
     <li [class]="getAllBrandClass()" routerLink = "/cars">All Brands</li>
     <li (click)="setCurrentBrand(brand)"
     routerLink = "/cars/brand/{{brand.brandId}}"
-    *ngFor="let brand of brands" 
+    *ngFor="let brand of brands | brandFilterPipe:filterText" 
     [class]="getCurrentBrandClass(brand)">{{brand.brandName}}</li>
 </ul>
+
+<hr>

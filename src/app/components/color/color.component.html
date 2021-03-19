@@ -20,19 +20,30 @@
     
 </table> -->
 
-<div class="form-group">
-    <label *ngIf="dataLoaded==true" for="color">Colors</label>
+<div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Color Filter</label>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Pick a color">
+</div>
+<!-- <div class="form-group">
+     <label *ngIf="dataLoaded==true" for="color"></label>
     <select name="color" id="filterText" [(ngModel)]="filterText" class="form-control">
         <option value="" routerLink = "/cars" selected>All Colors</option>
         <option *ngFor="let color of colors" 
-        [value]="color.colorId" 
+        [value]="color.colorName" 
         routerLink = "/cars/color/{{color.colorId}}">{{color.colorName}}</option>
     </select>
+</div> -->
+
+<!-- <div class="mb-3">
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" 
+    placeholder="Renk giriniz">
 </div>
-<div class="mb-3">
-    <label for="exampleFormControlInput1" class="form-label">Color Filter</label>
-    <input type="email" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Pick a color">
-  </div>
+<select [(ngModel)]="currentColor" class="form-select" (change)="setQueryParams(currentColor)" aria-label="Default select example">
+    <option [selected]="isAllColorSelected()" [ngValue]=undefined>Tüm renkler</option>
+    <option [selected]="isCurrentColor(color)" *ngFor="let color of colors | colorFilterPipe:filterText; index as i" [ngValue]="color">{{color.colorName}}</option>
+</select> -->
+
+
 <div>{{filterText}}</div>
 <ul *ngIf="dataLoaded==true" class="list-group"><h3 style="text-align: center;">Colors</h3>
     <li [class]="getAllColorClass()" routerLink = "/cars">All Colors</li>
@@ -41,3 +52,5 @@
     *ngFor="let color of colors | colorFilterPipe:filterText" 
     [class]="getCurrentColorClass(color)">{{color.colorName}}</li>
 </ul>
+
+<hr>

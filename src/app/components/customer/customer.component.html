@@ -6,7 +6,8 @@
     <thead>
         <tr>
             <th>Customer Id</th>
-            <th>User Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
             <th>Company Name</th>
             
 
@@ -15,7 +16,8 @@
     <tbody>
         <tr *ngFor="let customer of customers">
             <td>{{customer.customerId}}</td>
-            <td>{{customer.userId}}</td>
+            <td>{{customer.firstName}}</td>
+            <td>{{customer.lastName}}</td>
             <td>{{customer.companyName}}</td>
         </tr>
     </tbody>

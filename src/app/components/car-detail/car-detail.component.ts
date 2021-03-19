@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Car } from 'src/app/models/car';
 import { CarImage } from 'src/app/models/carImage';
+import { Rental } from 'src/app/models/rental';
 import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
+import { RentalService } from 'src/app/services/rental.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -13,6 +15,7 @@ import { environment } from 'src/environments/environment';
 })
 export class CarDetailComponent implements OnInit {
   cars:Car[]=[];
+  rentals:Rental[]=[];
   carImages:CarImage[]=[];
   currentImage : CarImage;
   dataLoaded = false;
@@ -22,6 +25,7 @@ export class CarDetailComponent implements OnInit {
     private carService:CarService,
     private activatedRoute:ActivatedRoute,
     private imageService:CarImageService,
+    private rentalService:RentalService,
   ) { }
 
   ngOnInit(): void {

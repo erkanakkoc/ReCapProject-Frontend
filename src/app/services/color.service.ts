@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
 export class ColorService {
   constructor(private httpClient:HttpClient) { }
 
-  getCars():Observable<ListResponseModel<Color>>{
+  getColors():Observable<ListResponseModel<Color>>{
     let newPath = environment.apiUrl+"colors/getall"
     return this.httpClient.get<ListResponseModel<Color>>(newPath);
   }

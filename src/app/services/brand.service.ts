@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
 export class BrandService {
   constructor(private httpClient:HttpClient) { }
 
-  getCars():Observable<ListResponseModel<Brand>>{
+  getBrands():Observable<ListResponseModel<Brand>>{
     let newPath = environment.apiUrl+"brands/getall"
     return this.httpClient.get<ListResponseModel<Brand>>(newPath);
   }
