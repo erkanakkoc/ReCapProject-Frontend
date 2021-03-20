@@ -6,7 +6,7 @@
     </div>
     <div class="col col-4">
         <select [(ngModel)]="colorFilter" class="form-select" aria-label="Default select example">
-            <option *ngFor="let color of colors" [value]="color.colorId" [selected]="getSelectedColor(color.colorId)"  >{{color.colorName}}</option>
+            <option *ngFor="let color of colors" [value]="color.colorId" selected="{{getSelectedColor(color.colorId)}}"  >{{color.colorName}}</option>
         </select>
     </div>
     <div class="col col-2">

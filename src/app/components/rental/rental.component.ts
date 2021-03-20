@@ -20,34 +20,21 @@ export class RentalComponent implements OnInit {
 
   constructor(private rentalService:RentalService, private modalService: NgbModal) { }
 
+  
   ngOnInit(): void {
     this.getRentalDetails();
   } 
 
+  
   getRentalDetails(){
      this.rentalService.getCars().subscribe(response=>{
        this.rentals=response.data
        this.dataLoaded=true;
      })
   }
+}
 
-  open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
-  }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
-  }
+  //---------------------------------------------
 
   // constructor(private activatedRoute:ActivatedRoute, private router:Router,private customerService:CustomerService,private rentalService:RentalService,private toastr: ToastrService) { }
   // customers:Customer[];
@@ -91,4 +78,4 @@ export class RentalComponent implements OnInit {
   //   })
   //   */
   // }
-}
+  //}
