@@ -40,14 +40,15 @@
             <td>{{car.modelYear}}</td>
             <td>{{car.dailyPrice}}</td>
             <td>{{car.description}}</td>
-            <td><button routerLink="/rental/{{car.carId}}" type="button" class="btn btn-success">Rent</button></td>
-    
+            <td><app-rental></app-rental></td>
+            <!-- <td><button routerLink="/rental/{{car.carId}}" type="button" class="btn btn-success">Rent</button></td>
+     -->
         </tr>
     </tbody>
     <br>
 <hr>
 
-<app-rental></app-rental>
+
 <h3>Rental History</h3>  
     <table *ngIf="dataLoaded==true" class="table table-striped table-hover table-bordered">
       <thead>

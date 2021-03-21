@@ -13,12 +13,14 @@ const routes: Routes = [
   {path:"cars/brand/:brandId", component:CarComponent},
   {path:"cars/color/:colorId", component:CarComponent},
   {path:"rentals", component:RentalComponent},
+  {path:"rental/:carId", component:RentalComponent},
   {path:"colors", component:ColorComponent},
   {path:"customers", component:CustomerComponent},
   {path:"brands", component:BrandComponent},
-  {path:"car/details/:carId", component:CarDetailComponent},
-  {path:"rental/:carId", component:RentalComponent},
-  {path:"cars/filter/:brandId/:colorId", component:CarComponent}
+  {path:"cars/detail/:carId", component:CarDetailComponent},
+  {path:"cars/filter/:brandId/:colorId", component:CarComponent},
+  {path:"cars/filter/brand/:brandId",component:CarComponent},
+  {path:"cars/filter/color/:colorId",component:CarComponent}
 ];
 
 @NgModule({

@@ -11,8 +11,18 @@ import { environment } from 'src/environments/environment';
 export class RentalService {
   constructor(private httpClient:HttpClient) { }
 
-  getCars():Observable<ListResponseModel<Rental>>{
+  getRentals():Observable<ListResponseModel<Rental>>{
     let newPath = environment.apiUrl+"rentals/getrentaldetails"
+    return this.httpClient.get<ListResponseModel<Rental>>(newPath);
+  }
+
+  addRental(rental:Rental){
+    let newPath = environment.apiUrl + "rentals/add";
+    this.httpClient.post(newPath,rental).subscribe();
+  }
+
+  getRentalsByCarId(carId:number):Observable<ListResponseModel<Rental>>{
+    let newPath = environment.apiUrl + "rentals/getbycarid?carId=" + carId;
     return this.httpClient.get<ListResponseModel<Rental>>(newPath);
   }
 
