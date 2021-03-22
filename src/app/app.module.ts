@@ -19,7 +19,9 @@ import { CustomerFilterPipePipe } from './pipes/customer-filter-pipe.pipe';
 import { CarFilterComponent } from './components/car-filter/car-filter.component';
 
 import { ToastrModule } from 'ngx-toastr';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+//import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PaymentComponent } from './components/payment/payment.component';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 
 
@@ -37,7 +39,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrandFilterPipePipe,
     CarFilterPipePipe,
     CustomerFilterPipePipe,
-    CarFilterComponent
+    CarFilterComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"
     }),
-    NgbModule
+    BrowserAnimationsModule
+    //NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

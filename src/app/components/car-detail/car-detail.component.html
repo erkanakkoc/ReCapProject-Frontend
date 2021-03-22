@@ -21,35 +21,41 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-<table *ngIf="dataLoaded==true" class="table table-striped table-hover table-bordered">
-    <thead>
-        <tr>
-            <th>Brand</th>
-            <th>Color</th>
-            <th>Model Year</th>
-            <th>Daily Price</th>
-            <th>Description</th>
-            <th>Function</th>
+  <div class="table-responsive-md">
+    <table *ngIf="dataLoaded==true" class="table table-striped table-hover table-bordered">
+      <thead>
+          <tr>
+              <th>Brand</th>
+              <th>Color</th>
+              <th>Model Year</th>
+              <th>Daily Price</th>
+              <th>Description</th>
+              <th>Function</th>
+    
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let car of cars">
+              <td>{{car.brandName}}</td>
+              <td>{{car.colorName}}</td>
+              <td>{{car.modelYear}}</td>
+              <td>{{car.dailyPrice}}</td>
+              <td>{{car.description}}</td>
+              <td><app-rental></app-rental></td>
+                <!-- <td><button routerLink="/rental/{{car.carId}}" type="button" class="btn btn-success">Rent</button></td>
+         -->
+          </tr>
+      </tbody>
+    </table>
+  </div>
 
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let car of cars">
-            <td>{{car.brandName}}</td>
-            <td>{{car.colorName}}</td>
-            <td>{{car.modelYear}}</td>
-            <td>{{car.dailyPrice}}</td>
-            <td>{{car.description}}</td>
-            <td><app-rental></app-rental></td>
-            <!-- <td><button routerLink="/rental/{{car.carId}}" type="button" class="btn btn-success">Rent</button></td>
-     -->
-        </tr>
-    </tbody>
     <br>
 <hr>
 
+<app-rental></app-rental>
 
-<h3>Rental History</h3>  
+
+<!-- <h3>Rental History</h3>  
     <table *ngIf="dataLoaded==true" class="table table-striped table-hover table-bordered">
       <thead>
           <tr>
@@ -62,7 +68,7 @@
               
   
           </tr>
-      </thead>
+      </thead> -->
       <!-- <tbody>
           <tr *ngFor="let customer of customers">
               <td>{{rental.customerId}}</td>

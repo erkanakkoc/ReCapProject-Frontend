@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Car } from 'src/app/models/car';
 import { CarImage } from 'src/app/models/carImage';
 import { Rental } from 'src/app/models/rental';
+import { CarDetailService } from 'src/app/services/car-detail.service';
 import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
 import { RentalService } from 'src/app/services/rental.service';
@@ -23,6 +24,7 @@ export class CarDetailComponent implements OnInit {
 
   constructor(
     private carService:CarService,
+    private carDetailService:CarDetailService,
     private activatedRoute:ActivatedRoute,
     private imageService:CarImageService,
     private rentalService:RentalService,

@@ -9,6 +9,7 @@ import { CustomerService } from 'src/app/services/customer.service';
 import { RentalService } from 'src/app/services/rental.service';
 import { DatePipe } from "@angular/common"
 import { ToastrService } from 'ngx-toastr';
+import { CarDetailService } from 'src/app/services/car-detail.service';
 
 
 
@@ -47,6 +48,7 @@ export class RentalComponent implements OnInit {
  
   constructor(private rentalService:RentalService,
     private carService:CarService,
+    private carDetailService:CarDetailService,
     private activatedRoute:ActivatedRoute,
     private customerService:CustomerService,
     private router:Router,
@@ -59,6 +61,8 @@ export class RentalComponent implements OnInit {
       if(params["carId"]){
         this.getCarDetail(params["carId"]);
         this.getCustomers();
+        this.CheckStatus(params["carId"]);
+        this.getRentalsByCarId(params["carId"])
       }
     })
     this.minDate=this.datePipe.transform(new Date(),"yyyy-MM-dd");
@@ -74,9 +78,18 @@ export class RentalComponent implements OnInit {
    
  }
 
+ getRentalsByCarId(carId:number){
+  this.rentalService.getRentalsByCarId(carId).subscribe(response => {
+    if (response.data[response.data.length-1]) {
+      this.rental = response.data[response.data.length-1];
+    }
+  })
+}
+
  getCarDetail(carId:number){
-   this.carService.getCarDetails(carId).subscribe(response => {
+   this.carService.getCarDetail(carId).subscribe(response => {
      this.car=response.data[0];
+     console.log(this.car);
    })
  }
 
@@ -98,13 +111,13 @@ export class RentalComponent implements OnInit {
  }
  CheckStatus(carId:number){
     
-  this.carService.getCarDetails(carId).subscribe(response => {
+  this.carService.getCarDetail(carId).subscribe(response => {
     this.rentable = response.data[response.data.length-1].status;
   })
  }
 
  setCustomerId(customerId:any){
-  this.rental.customerId=+customerId;
+  this.customerId=+customerId;
   console.log(this.customerId)
  }
 
@@ -113,6 +126,8 @@ export class RentalComponent implements OnInit {
    this.firstDateSelected = true
  }
 }
+
+//-----------------------
 
   
 //   getRentalDetails(){
