@@ -1,0 +1,58 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="title">Add Car</h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="carUpdateForm" action="">
+                    <div class="mb-3">
+                        <label for="carName">Car Name</label>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Car Name" type="text" id="carName" formControlName="carName" />
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="brandId">Brand Id</label>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Brand Id" type="number" id="brandId" formControlName="brandId" />
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="colorId">Color Id</label>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Color Id" type="number" id="colorId" formControlName="colorId" />
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="modelYear">Model Year</label>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Model Year" type="text" id="modelYear" formControlName="modelYear" />
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="dailyPrice">Daily Price</label>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Daily Price" type="number" id="dailyPrice" formControlName="dailyPrice" />
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description">Description</label>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Description" type="text" id="description" formControlName="description" />
+                        </div>
+                    </div>
+                    <!-- <div class="mb-3">
+                        <label for="imagePath">Upload Image</label>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Upload Image" type="file" id="imagePath" formControlName="imagePath" />
+                        </div>    
+                    </div>                                       -->
+                </form>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-fill btn-success" (click)="update()">Update</button>
+            </div>
+        </div>
+    </div>  
+</div>

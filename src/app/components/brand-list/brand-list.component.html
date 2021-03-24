@@ -1,0 +1,30 @@
+<div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+</div>
+
+<div class="mb-3 mt-4">
+    <label for="exampleFormControlInput1" class="form-label">Brand Filter</label>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Pick a Brand">
+</div>
+
+<table *ngIf="dataLoaded==true" class="table table-striped table-hover table-responsive">
+    <thead class="table">
+        <tr>
+            <th>Brand Id</th>
+            <th>Brand Name</th>
+            <th>Operations</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let brand of brands | brandFilterPipe:filterText">
+            <td>{{brand.brandId}}</td>
+            <td>{{brand.brandName}}</td>
+            <td>
+                <button type="button" class="btn btn-danger" >Delete</button>
+                <button type="button" class="btn btn-warning">Update</button>
+            </td>
+        </tr>
+    </tbody>
+    
+</table>

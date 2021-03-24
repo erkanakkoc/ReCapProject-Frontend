@@ -1,0 +1,23 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="title">Add Brand</h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="brandAddForm" action="">
+                    <div class="mb-3">
+                        <label for="brandName">Brand Name</label>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Brand Name" type="text" id="brandName" formControlName="brandName" />
+                        </div> 
+                    </div>
+                                
+                </form>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-fill btn-success" (click)="add()">Add</button>
+            </div>
+        </div>
+    </div>
+</div>

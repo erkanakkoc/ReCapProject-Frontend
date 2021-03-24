@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +22,15 @@ import { ToastrModule } from 'ngx-toastr';
 //import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PaymentComponent } from './components/payment/payment.component';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ColorAddComponent } from './components/color-add/color-add.component';
+import { BrandAddComponent } from './components/brand-add/brand-add.component';
+import { CarAddComponent } from './components/car-add/car-add.component';
+import { ColorListComponent } from './components/color-list/color-list.component';
+import { BrandListComponent } from './components/brand-list/brand-list.component';
+import { CarListComponent } from './components/car-list/car-list.component';
+import { CarUpdateComponent } from './components/car-update/car-update.component';
+import { ColorUpdateComponent } from './components/color-update/color-update.component';
+import { BrandUpdateComponent } from './components/brand-update/brand-update.component';
 
 
 
@@ -40,13 +49,23 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     CarFilterPipePipe,
     CustomerFilterPipePipe,
     CarFilterComponent,
-    PaymentComponent
+    PaymentComponent,
+    ColorAddComponent,
+    BrandAddComponent,
+    CarAddComponent,
+    ColorListComponent,
+    BrandListComponent,
+    CarListComponent,
+    CarUpdateComponent,
+    ColorUpdateComponent,
+    BrandUpdateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"
     }),

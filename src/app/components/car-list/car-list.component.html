@@ -1,0 +1,46 @@
+<div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+</div>
+
+
+<table *ngIf="dataLoaded==true" class="table table-hover table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Car Id</th>
+            <th scope="col">Brand</th>
+            <th scope="col">Car Model</th>
+            <th scope="col">Color</th>
+            <th scope="col">Model Year</th>
+            <th scope="col">Daily Price</th>
+            <th scope="col">Description</th>
+            <th scope="col">Operations</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let car of cars">
+            <th>{{car.carId}}</th>
+            <!-- <td>{{car.carId}}</td> -->
+            <td>{{car.brandName}}</td>
+            <td>{{car.carName}}</td>
+            <td>{{car.colorName}}</td>
+            <td>{{car.modelYear}}</td>
+            <td>{{car.dailyPrice}}</td>
+            <td>{{car.description}}</td>
+            <td>
+                <ul class="list-inline m-0">
+                    <li class="list-inline-item">
+                        <button type="button" class="btn btn-danger" >Delete</button>
+                    </li>
+                    <li class="list-inline-item">
+                        <button type="button" class="btn btn-warning" routerLink="/cars/update/{{carId}}">Update</button>
+                    </li>
+                </ul>
+                
+                
+                
+            </td>
+        </tr>
+    </tbody>
+    
+</table>
