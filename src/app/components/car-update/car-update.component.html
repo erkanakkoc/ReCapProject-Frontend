@@ -1,58 +1,112 @@
-<div class="content">
+<div class="container">
     <div class="col-md-12">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="title">Add Car</h5>
+      <div class="card">
+        <div class="card-header"><h5 class="title">Car Update</h5></div>
+        <div class="card-body">
+          <form [formGroup]="carUpdateForm">
+            <div class="mb-3">
+                <label for="carId" class="col-sm-2 col-form-label">Car Id:</label>
+                <input type="number" id="carId" [value]="carId" class="form-control" disabled />
             </div>
-            <div class="card-body">
-                <form [formGroup]="carUpdateForm" action="">
-                    <div class="mb-3">
-                        <label for="carName">Car Name</label>
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Car Name" type="text" id="carName" formControlName="carName" />
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="brandId">Brand Id</label>
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Brand Id" type="number" id="brandId" formControlName="brandId" />
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="colorId">Color Id</label>
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Color Id" type="number" id="colorId" formControlName="colorId" />
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="modelYear">Model Year</label>
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Model Year" type="text" id="modelYear" formControlName="modelYear" />
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="dailyPrice">Daily Price</label>
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Daily Price" type="number" id="dailyPrice" formControlName="dailyPrice" />
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="description">Description</label>
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Description" type="text" id="description" formControlName="description" />
-                        </div>
-                    </div>
-                    <!-- <div class="mb-3">
-                        <label for="imagePath">Upload Image</label>
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Upload Image" type="file" id="imagePath" formControlName="imagePath" />
-                        </div>    
-                    </div>                                       -->
-                </form>
+            <div class="mb-3">
+                <label for="carName" class="col-sm-2 col-form-label">Car Model :</label>
+                <input type="text" id="carName" formControlName="carName" class="form-control" placeholder="Car Model" />
             </div>
-            <div class="card-footer">
-                <button class="btn btn-fill btn-success" (click)="update()">Update</button>
+            <div class="mb-3">
+                <label for="brandId" class="col-sm-2 col-form-label">Brand Id:</label>
+                <input type="number" id="brandId" formControlName="brandId" class="form-control" placeholder="Brand Id" />
             </div>
+            <div class="mb-3">
+                <label for="colorId" class="col-sm-2 col-form-label">Color Id:</label>
+                <input type="number" id="colorId" formControlName="colorId" class="form-control" placeholder="Color Id" />
+            </div>
+            <div class="mb-3">
+                <label for="modelYear">Model Year</label>
+                <input type="text" id="modelYear" formControlName="modelYear" class="form-control" placeholder="Model Year" />
+            </div>
+            <div class="mb-3">
+                <label for="dailyPrice">Daily Price</label>
+                <input type="number" id="dailyPrice" formControlName="dailyPrice" class="form-control" placeholder="Daily Price" />
+            </div>
+            <div class="mb-3">
+                <label for="description">Description</label>
+                <input type="text" id="description" formControlName="description" class="form-control" placeholder="Description" />
+            </div>
+  
+            <!-- <div *ngIf="errorMessages">
+              <label
+                class="text-danger"
+                *ngFor="let errorMessage of errorMessages"
+                >{{ errorMessage }}<br
+              /></label>
+            </div> -->
+          </form>
         </div>
-    </div>  
-</div>
+        <div class="card-footer">
+          <button
+            style="float: right"
+            class="btn btn-fill btn-success"
+            (click)="update()"
+          >
+            Update
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Brand Name</th>
+        <th scope="col">Car Model</th>
+        <th scope="col">Color Name</th>
+        <th scope="col">Model Year</th>
+        <th scope="col">Daily rice</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let car of cars ">
+        <td>{{ car.carId }}</td>
+        <td>{{ car.brandName }}</td>
+        <td>{{ car.carName }}</td>
+        <td>{{ car.colorName }}</td>
+        <td>{{ car.modelYear }}</td>
+        <td>{{ car.dailyPrice }}</td>
+        <td>{{ car.description }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let brand of brands ">
+        <td>{{ brand.brandId }}</td>
+        <td>{{ brand.brandName }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let color of colors ">
+        <td>{{ color.colorId }}</td>
+        <td>{{ color.colorName }}</td>
+      </tr>
+    </tbody>
+  </table>
