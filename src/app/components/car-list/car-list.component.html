@@ -1,8 +1,15 @@
+<br><h2 class="d-flex justify-content-center bg-light text-dark">CAR LİST</h2>
+<hr>
+    
+<div class="d-grid gap-2">
+    <button type="button" class="btn btn-success btn-lg btn-block" routerLink="/cars/add">Add New Car</button>
+</div>
+
 <div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
     <span class="visually-hidden">Loading...</span>
 </div>
 
-
+<br>
 <table *ngIf="dataLoaded==true" class="table table-hover table-striped">
     <thead>
         <tr>
@@ -30,7 +37,7 @@
             <td>
                 <ul class="list-inline m-0">
                     <li class="list-inline-item">
-                        <button type="button" class="btn btn-danger" >Delete</button>
+                        <button type="button" class="btn btn-danger" ><i class="fas fa-sign-out-alt"></i></button>
                     </li>
                     <li class="list-inline-item">
                         <button type="button" class="btn btn-warning" routerLink="/cars/update/{{car.carId}}">Update</button>

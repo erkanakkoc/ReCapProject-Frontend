@@ -90,6 +90,7 @@ export class RentalComponent implements OnInit {
    this.carService.getCarDetail(carId).subscribe(response => {
      this.car=response.data[0];
      console.log(this.car);
+     this.rentable = response.data[0].status;
    })
  }
 

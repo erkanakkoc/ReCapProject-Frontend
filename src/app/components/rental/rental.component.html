@@ -59,7 +59,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
-        <button (click)="addRental()" type="button" class="btn btn-primary" data-bs-dismiss="modal">Kirala</button>
+        <button *ngIf="rentable"  (click)="addRental()" type="button" class="btn btn-primary" data-bs-dismiss="modal">Kirala</button>
       </div>
     </div>
   </div>
