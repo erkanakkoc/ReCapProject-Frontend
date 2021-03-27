@@ -1,13 +1,17 @@
-<app-car-filter></app-car-filter>
+<div class="row">
+  <div class="col-md-3">
+    <app-car-filter></app-car-filter>
+  </div>
+  <div class="col-md-9">
+    <h4 style="text-align: center;"><b>CAR LIST</b></h4>
+    <div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
 
-<h4 style="text-align: center;"><b>CAR LIST</b></h4>
-<div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
-    <span class="visually-hidden">Loading...</span>
-</div>
-
-<div class="row" style="margin-top: 5px;" *ngIf="dataLoaded==true">
-    <div *ngFor="let car of cars" class="card" style="width: 18rem;">
-        <img src="{{imageBasePath}}{{car.imagePath}}" class="card-img-top" width="320" height="200" alt={{car.description}}>
+    <div class="row" style="margin-top: 5px;" *ngIf="dataLoaded==true">
+      <div *ngFor="let car of cars" class="card" style="width: 18rem;">
+        <img src="{{imageBasePath}}{{car.imagePath}}" class="card-img-top" width="320" height="200"
+          alt={{car.description}}>
         <div class="card-body">
           <h5 class="card-title d-flex justify-content-center">{{car.carName}}</h5>
           <p class="card-text d-flex justify-content-center">{{car.description}}</p>
@@ -19,12 +23,13 @@
           <li class="list-group-item">Daily Price: {{car.description}}</li>
         </ul>
         <div class="card-body">
-            <section style="float:left">
-                <button routerLink="/cars/detail/{{car.carId}}" type="button" class="btn btn-primary">Details</button>
-              </section>
-              <section style="float: right">
-                <button type="button" class="btn btn-primary">Rent</button>
-              </section>
+          <section style="float:left">
+            <button routerLink="/cars/detail/{{car.carId}}" type="button" class="btn btn-primary">Details</button>
+          </section>
+          <section style="float: right">
+            <button type="button" class="btn btn-primary">Rent</button>
+          </section>
         </div>
       </div>
-</div>
+    </div>
+  </div>

@@ -1,4 +1,4 @@
-<div class="row mb-4 mt-3">
+<!-- <div class="row mb-4 mt-3">
     <div class="col col-4">
         <select [(ngModel)]="brandFilter"  class="form-select" aria-label="Default select example">
             <option *ngFor="let brand of brands" [value]="brand.brandId" selected="{{getSelectedBrand(brand.brandId)}}">{{brand.brandName}}</option>
@@ -13,6 +13,29 @@
         <a routerLink="/cars/filter/{{brandFilter}}/{{colorFilter}}" class="btn btn-success" style="text-align: center;">Filtrele</a>
     </div>
     <div class="col col-2">
+        <a routerLink="/cars" class="btn btn-danger">Temizle</a>
+    </div>
+</div> -->
+
+<div class="card text-center">
+    <div class="card-body">
+        <ul class="list-group mb-1">
+            <li class="list-group-item active">FİLTREYE GÖRE GETİR</li>
+        </ul>
+        <label for="brandFilter">Select A Brand</label>
+        <select [(ngModel)]="brandFilter" class="form-select" aria-label="Default select example">
+            <option *ngFor="let brand of brands" [value]="brand.brandId" selected="{{getSelectedBrand(brand.brandId)}}">
+                {{brand.brandName}}</option>
+        </select>
+        <label for="colorFilter">Select A Color</label>
+        <select [(ngModel)]="colorFilter" class="form-select" aria-label="Default select example">
+            <option *ngFor="let color of colors" [value]="color.colorId" selected="{{getSelectedColor(color.colorId)}}">
+                {{color.colorName}}</option>
+        </select>
+    </div>
+    <div class="card-footer text-muted d-flex justify-content-md-between">
+        <a routerLink="/cars/filter/{{brandFilter}}/{{colorFilter}}" class="btn btn-success"
+            style="text-align: center;">Filtrele</a>
         <a routerLink="/cars" class="btn btn-danger">Temizle</a>
     </div>
 </div>
