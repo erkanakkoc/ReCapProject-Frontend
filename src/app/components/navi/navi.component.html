@@ -56,11 +56,27 @@
         </ul> -->
 
         <ul class="navbar-nav mb-2 mb-lg-0">
+          <!-- <form *ngIf="!isAuthenticated" #loginForm="ngForm" (ngSubmit)="login()" class="form-inline">
+            <input class="form-ontrol mr-sm-2" name="userName" [(ngModel)]="loginUser.userName" required type="text" placeholder="E-Mail Address">
+            <input class="form-ontrol mr-sm-2" name="password" [(ngModel)]="loginUser.password" required type="text" placeholder="Password">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit" [disabled]="!loginForm.valid">Login</button>
+          </form> -->
           <li class="nav-item">
             <a class="nav-link" routerLink="/login">Login</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="/register">Register</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">
+              <!-- {{this.user.firstName}} {{this.user.lastName}} -->
+
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a routerLink="" class="dropdown-item">Ayarlar</a>
+              <div class="dropdown-divider"></div>
+              <a href="" class="dropdown-item">Çıkış Yap</a>
+            </div>
           </li>
         </ul>
         
