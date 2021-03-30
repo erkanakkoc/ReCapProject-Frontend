@@ -34,6 +34,7 @@ import { BrandUpdateComponent } from './components/brand-update/brand-update.com
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { RentalListComponent } from './components/rental-list/rental-list.component';
 
 
 
@@ -64,7 +65,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     ColorUpdateComponent,
     BrandUpdateComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    RentalListComponent
   ],
   imports: [
     BrowserModule,

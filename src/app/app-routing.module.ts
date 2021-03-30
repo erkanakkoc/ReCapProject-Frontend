@@ -17,6 +17,7 @@ import { CustomerComponent } from './components/customer/customer.component';
 import { LoginComponent } from './components/login/login.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { RegisterComponent } from './components/register/register.component';
+import { RentalListComponent } from './components/rental-list/rental-list.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { LoginGuard } from './guards/login.guard';
 
@@ -37,6 +38,7 @@ const routes: Routes = [
   {path:"cars/rental/payment/:rental",component:PaymentComponent},
   //RENTALS
   {path:"rentals", component:RentalComponent},
+  {path:"rentals/list", component:RentalListComponent},
   {path:"rental/:carId", component:RentalComponent},
   //COLORS
   {path:"colors", component:ColorComponent},

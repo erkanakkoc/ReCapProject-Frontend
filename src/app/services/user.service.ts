@@ -19,9 +19,19 @@ export class UserService {
   }
 
   getByUserId(id:number):Observable<SingleResponseModel<User>>{
-    let newPath = environment.apiUrl + "users/getbyid?id=" + id;
+    let newPath = environment.apiUrl + "users/getbyid?userId=" + id;
     return this.httpClient.get<SingleResponseModel<User>>(newPath);
   }
 
+
+  getUserFindexByUserId(userId:number):Observable<SingleResponseModel<User>>{
+    let newPath = environment.apiUrl + "users/getuserfindexbyuserid?userId=" + userId;
+    return this.httpClient.get<SingleResponseModel<User>>(newPath);
+  }
+
+  updateUserFindex(userId:number):Observable<ResponseModel>{
+    let newPath = environment.apiUrl + "users/updateuserfindex?userId=" + userId;
+    return this.httpClient.get<ResponseModel>(newPath);
+  }
 
 }

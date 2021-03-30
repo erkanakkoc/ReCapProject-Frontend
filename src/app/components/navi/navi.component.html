@@ -13,7 +13,7 @@
             <a class="nav-link" routerLink="/cars">Cars</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/rentals">Rentals</a>
+            <a class="nav-link" routerLink="/rentals/list">Rentals</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -55,30 +55,54 @@
           </li>
         </ul> -->
 
-        <ul class="navbar-nav mb-2 mb-lg-0">
+        <!-- <ul class="navbar-nav mb-2 mb-lg-0"> -->
           <!-- <form *ngIf="!isAuthenticated" #loginForm="ngForm" (ngSubmit)="login()" class="form-inline">
             <input class="form-ontrol mr-sm-2" name="userName" [(ngModel)]="loginUser.userName" required type="text" placeholder="E-Mail Address">
             <input class="form-ontrol mr-sm-2" name="password" [(ngModel)]="loginUser.password" required type="text" placeholder="Password">
             <button class="btn btn-secondary my-2 my-sm-0" type="submit" [disabled]="!loginForm.valid">Login</button>
           </form> -->
-          <li class="nav-item">
+
+          
+          <!-- <li class="nav-item">
             <a class="nav-link" routerLink="/login">Login</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="/register">Register</a>
           </li>
-          <li class="nav-item dropdown">
-            <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">
-              <!-- {{this.user.firstName}} {{this.user.lastName}} -->
 
-            </a>
-            <div class="dropdown-menu dropdown-menu-right">
-              <a routerLink="" class="dropdown-item">Ayarlar</a>
-              <div class="dropdown-divider"></div>
-              <a href="" class="dropdown-item">Çıkış Yap</a>
-            </div>
+          <li class="nav-item dropdown dropleft">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"></a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><a class="dropdown-item" href="#">Account</a></li>
+              <li><a class="dropdown-item" href="#">Settings</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Log-out</a></li>
+            </ul>
           </li>
-        </ul>
+        </ul> -->
+
+
+        <div *ngIf="!isAuthenticated()">
+          <button  class="btn btn-primary mybtn" routerLink="/login">Log-in</button>
+          <button style="margin-left: 10px;" class="btn btn-primary mybtn" routerLink="/register">Register</button>
+        </div>
+        <div *ngIf="isAuthenticated()">
+          <div class="nav-item dropdown">
+            <a style="color: whitesmoke;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i style="margin-right: 10px; font-size: 1.2rem;" class="fas fa-user-circle"></i><strong *ngIf="user">{{user.firstName}} {{user.lastName}}</strong>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" routerLink="profile"><i style="margin-right: 10px;" class="fas fa-users-cog"></i>Profile</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" routerLink="profile"><i style="margin-right: 10px;" class="fa fa-shopping-cart"></i>Orders</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" routerLink="cards"><i style="margin-right: 10px;" class="fas fa-cogs"></i>Settings</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" (click)="logOut()"><i style="margin-right: 10px;" class="fas fa-sign-out-alt"></i>Log-Out</a></li>
+            </ul>
+          </div>
+        </div>
         
         <!-- <form class="d-flex">
           <span style="color: white;">

@@ -1,0 +1,47 @@
+<br><h2 class="d-flex justify-content-center bg-light text-dark">RENTAL LİST</h2>
+<hr>
+    
+<div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+</div>
+
+<br>
+<table *ngIf="dataLoaded==true" class="table table-hover table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Rental Id</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Company</th>
+            <th scope="col">Rent Date</th>
+            <th scope="col">Return Date</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let rental of rentals">
+            <th>{{rental.rentalId}}</th>
+            <td>{{rental.firstName}}</td>
+            <td>{{rental.lastName}}</td>
+            <td>{{rental.companyName}}</td>
+            <td>{{rental.rentDate}}</td>
+            <td>{{rental.returnDate}}</td>
+
+            <td>
+                <ul class="list-inline m-0">
+                    <li class="list-inline-item">
+                        <button type="button" class="btn btn-danger" ><i class="fas fa-sign-out-alt"></i></button>
+                    </li>
+                    <li class="list-inline-item">
+                        <button type="button" class="btn btn-warning" routerLink="/rentals/update/{{rental.rentalId}}">Update</button>
+                    </li>
+                </ul>
+                
+                
+                
+            </td>
+        </tr>
+    </tbody>
+    
+</table>

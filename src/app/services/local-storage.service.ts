@@ -10,8 +10,13 @@ export class LocalStorageService {
     this.localStorage = window.localStorage;
   }
 
-  get(key : string){
-    return this.localStorage.getItem(key);
+  get(value:string){
+    var result = this.localStorage.getItem(value);
+    if (result) {
+      return result
+    }else{
+      return undefined
+    }
   }
 
   set(key: string, value: string){
