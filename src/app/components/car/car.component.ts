@@ -18,6 +18,7 @@ export class CarComponent implements OnInit {
   
   dataLoaded = false;
   imageBasePath = environment.baseUrl
+  carImageDefault= environment.baseUrl+"/default.jpg"
 
 
   constructor(private carService:CarService, private activatedRoute:ActivatedRoute, private toastr: ToastrService) { }

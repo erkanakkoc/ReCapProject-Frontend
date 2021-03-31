@@ -21,6 +21,7 @@ export class CarDetailComponent implements OnInit {
   currentImage : CarImage;
   dataLoaded = false;
   imageBasePath = environment.baseUrl;
+  carImageDefault= environment.baseUrl+"/default.jpg"
 
   constructor(
     private carService:CarService,

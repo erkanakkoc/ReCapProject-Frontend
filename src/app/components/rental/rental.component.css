@@ -1,0 +1,33 @@
+caption{
+    background-color: #0D4BFD;
+    color: white;
+    display: block;
+    text-align: center;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+button{
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.customers{
+    margin-bottom: 20px;
+}
+
+.mybutton{
+    display: inline-block;
+    padding: 10px auto;
+}
+
+.mybtn{
+    border-radius: 6px;
+    color: whitesmoke;
+    height: 100%;
+    background-color: #046e8f;
+    border: none;
+}
+.mybtn:hover{
+    border-radius: 6px;
+    background-color: #0090c1;
+}

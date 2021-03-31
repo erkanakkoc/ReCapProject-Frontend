@@ -4,5 +4,6 @@ export interface User{
     lastName:string;
     email:string;
     password:string;
-    status:boolean;
+    //status:boolean;
+    findex:number;
 }

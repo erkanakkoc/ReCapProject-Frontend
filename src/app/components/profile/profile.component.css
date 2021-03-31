@@ -1,0 +1,25 @@
+.card-header{
+    background-color: #045f7a;
+    color: whitesmoke;
+    text-align: center;
+}
+
+.mybtn{
+    border-radius: 6px;
+    color: whitesmoke;
+    height: 100%;
+    background-color: #046e8f;
+    border: none;
+  }
+  .mybtn:hover{
+    border-radius: 6px;
+    background-color: #0090c1;
+  }
+
+input{
+  border-left-color: #0090c1;
+  border-left-width: 7px;
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+}

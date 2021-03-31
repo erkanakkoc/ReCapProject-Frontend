@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Brand } from 'src/app/models/brand';
 import { Color } from 'src/app/models/color';
 import { BrandService } from 'src/app/services/brand.service';
+import { CarService } from 'src/app/services/car.service';
 import { ColorService } from 'src/app/services/color.service';
 
 @Component({
@@ -11,7 +13,12 @@ import { ColorService } from 'src/app/services/color.service';
 })
 export class CarFilterComponent implements OnInit {
 
-  constructor(private brandService:BrandService, private colorService:ColorService) { }
+  constructor(
+    private brandService:BrandService, 
+    private colorService:ColorService,
+    private activatedRoute:ActivatedRoute,
+    private carService:CarService
+    ) { }
 
   brands: Brand[] = [];
   colors: Color[] = [];
@@ -35,16 +42,44 @@ export class CarFilterComponent implements OnInit {
       // this.dataLoaded = true;
     });
   }
-  getSelectedBrand(brandId: Number) {
-    if (this.brandFilter == brandId)
+  getSelectedBrand(brand: Brand) {
+    if (brand.brandId == this.brandFilter)
       return true;
     else
       return false;
   }
-  getSelectedColor(colorId: Number) {
-    if (this.colorFilter == colorId)
+  getSelectedColor(color: Color) {
+    if (color.colorId == this.colorFilter)
       return true;
     else
       return false;
+  }
+
+  IsCurrentColorNull(){
+    if(this.colorFilter){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  IsCurrentBrandNull(){
+    if(this.brandFilter){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  GetRouterLink(){
+    if(this.colorFilter && this.brandFilter){
+      return "/cars/filter/brand/"+this.brandFilter +"/color/" +this.colorFilter;
+    }else if(this.brandFilter){
+      return "/cars/filter/brand/" +this.brandFilter;
+    }else if(this.colorFilter){
+      return "/cars/filter/color/" +this.colorFilter;
+    }else{
+      return "/cars";
+    }
   }
 }

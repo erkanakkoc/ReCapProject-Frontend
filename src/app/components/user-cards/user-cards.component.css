@@ -1,0 +1,22 @@
+caption{
+    background-color: #045f7a;
+    color: white;
+    display: block;
+    text-align: center;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px; 
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+}
+li{
+    margin-bottom: 10px;
+}
+ul{
+    margin-top: 30px;
+}
+
+.card{
+    background-color: #0091c1;
+    color:#2db2df;
+    box-shadow: 10px 15px 6px rgba(0, 0, 0, 0.6) 
+}

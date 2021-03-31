@@ -14,8 +14,7 @@ export class UserService {
   constructor(private httpClient:HttpClient) { }
 
   update(user:User):Observable<ResponseModel>{
-    let newPath = environment.apiUrl + "users/updateinfo" 
-    return this.httpClient.post<ResponseModel>(newPath,user);
+    return this.httpClient.post<ResponseModel>(environment.apiUrl + "users/updateinfo" ,user);
   }
 
   getByUserId(id:number):Observable<SingleResponseModel<User>>{
@@ -25,7 +24,7 @@ export class UserService {
 
 
   getUserFindexByUserId(userId:number):Observable<SingleResponseModel<User>>{
-    let newPath = environment.apiUrl + "users/getuserfindexbyuserid?userId=" + userId;
+    let newPath = environment.apiUrl + "users/getbyid?userId=" + userId;
     return this.httpClient.get<SingleResponseModel<User>>(newPath);
   }
 

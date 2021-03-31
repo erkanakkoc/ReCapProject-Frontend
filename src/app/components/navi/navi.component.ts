@@ -39,7 +39,6 @@ export class NaviComponent implements OnInit {
   getUserDetail(){
     this.userService.getByUserId(this.currentUserId).subscribe(response => {
       this.user = response.data;
-      console.log(this.user.lastName)
     });
   }
 

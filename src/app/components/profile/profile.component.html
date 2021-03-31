@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">Kullanıcı Profili</div>
+            <div class="card-body" style="padding-bottom: 0px;">
+                <form [formGroup]="userUpdateForm">
+                    <div class="mb-3">
+                        <label for="firstName" class="form-label">Ad : </label>
+                        <input type="text" class="form-control" formControlName="firstName" id="firstName" placeholder="">
+                    </div>
+                    <div class="mb-3">
+                        <label for="lastName" class="form-label">Soyad : </label>
+                        <input type="text" class="form-control" formControlName="lastName" id="lastName" placeholder="">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email : </label>
+                        <input type="email" class="form-control" formControlName="email" id="email" placeholder="">
+                    </div>
+                </form>
+            </div>
+            <div class="password">
+                <app-change-password></app-change-password>
+            </div>
+            <div class="card-footer">
+                <button (click)="userUpdate()" style="width: 100%;" class="btn btn-primary mybtn">Güncelle</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div style="margin-left: 2rem;" class="card">
+            <div class="card-header">Müşteri Profili</div>
+            <div class="card-body">
+                <form [formGroup]="customerUpdateForm">
+                    <div class="mb-3" *ngIf="customer">
+                        <label for="companyName" class="form-label">Şirket Adı :</label>
+                        <input type="text" class="form-control" formControlName="companyName" id="companyName" placeholder="">
+                    </div>
+                </form>
+                <div *ngIf="!customer" class="alert alert-primary" role="alert">
+                    Veri tabanında bir şirketinizi bulamadık.
+                </div>
+            </div>
+            <div class="card-footer" *ngIf="customer">
+                <button style="width: 100%;" (click)="customerUpdate()" class="btn btn-primary mybtn">Güncelle</button>
+            </div>
+        </div>
+        <div class="findex" style="margin-left: 30px; margin-top: 70px;">
+            <div class="card">
+                <div class="card-header">
+                    Findex Puanınız
+                </div>
+                <div class="card-body">
+                    <input class="fs-3" type="number" [(ngModel)]="findex" disabled="disabled" style="width: 100%; text-align: center; border-radius: 8px;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

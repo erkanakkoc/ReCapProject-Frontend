@@ -17,7 +17,7 @@
     </div>
 </div> -->
 
-<div class="card text-center">
+<!-- <div class="card text-center">
     <div class="card-body">
         <ul class="list-group mb-1">
             <li class="list-group-item active">FİLTREYE GÖRE GETİR</li>
@@ -36,6 +36,28 @@
     <div class="card-footer text-muted d-flex justify-content-md-between">
         <a routerLink="/cars/filter/{{brandFilter}}/{{colorFilter}}" class="btn btn-success"
             style="text-align: center;">Filtrele</a>
+        <a routerLink="/cars" class="btn btn-danger">Temizle</a>
+    </div>
+</div> -->
+
+<div class="card text-center">
+    <div class="card-body">
+        <ul class="list-group mb-1">
+            <li class="list-group-item active">FİLTREYE GÖRE GETİR</li>
+        </ul>
+        <label for="brandFilter">Select A Brand</label>
+        <select [(ngModel)]="brandFilter" class="form-select" aria-label="Default select example">
+            <option [selected]="IsCurrentBrandNull()" [value]=undefined>Bir marka seçiniz</option>
+            <option *ngFor="let brand of brands" [value]="brand.brandId" [selected]="getSelectedBrand(brand)">{{brand.brandName}}</option>
+          </select>
+        <label for="colorFilter">Select A Color</label>
+        <select [(ngModel)]="colorFilter" class="form-select" aria-label="Default select example">
+            <option [selected]="IsCurrentColorNull()" [value]=undefined>Bir renk seçiniz</option>
+            <option *ngFor="let color of colors" [value]="color.colorId" [selected]="getSelectedColor(color)">{{color.colorName}}</option>
+        </select>
+    </div>
+    <div class="card-footer text-muted d-flex justify-content-md-between">
+        <button [routerLink]="GetRouterLink()" type="button" class="btn btn-primary mybtn">Filtrele</button>
         <a routerLink="/cars" class="btn btn-danger">Temizle</a>
     </div>
 </div>

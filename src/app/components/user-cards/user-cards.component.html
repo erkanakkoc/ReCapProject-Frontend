@@ -1,0 +1,22 @@
+<caption>
+    Kredi Kartlarım
+  </caption>
+  <div class="cards row">
+    <div *ngFor="let card of cards" class="col-md-4" style="margin-left: 10px">
+      <div class="card" style="border-radius: 15px; width: 400px; height: 235px;">
+        <div class="card-body">
+          <ul class="list-group list-group-flush">
+              <li style="text-align: center;" class="list-group fs-2">{{ card.cardNumber }}</li>
+            <li style="margin-left: 280px;" class="list-group">{{ card.expirationDate }}</li>
+            <li style="margin-left: 47px;" class="list-group fs-5">
+              {{ card.firstName }} {{ card.lastName }}
+            </li>
+            <img
+              style="width: 55px; right: 10px; bottom: 0; position: absolute;"
+              src="https://img.icons8.com/color/48/000000/mastercard-logo.png"
+            />
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -35,6 +35,9 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { RentalListComponent } from './components/rental-list/rental-list.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { UserCardsComponent } from './components/user-cards/user-cards.component';
 
 
 
@@ -66,7 +69,10 @@ import { RentalListComponent } from './components/rental-list/rental-list.compon
     BrandUpdateComponent,
     LoginComponent,
     RegisterComponent,
-    RentalListComponent
+    RentalListComponent,
+    ChangePasswordComponent,
+    ProfileComponent,
+    UserCardsComponent
   ],
   imports: [
     BrowserModule,

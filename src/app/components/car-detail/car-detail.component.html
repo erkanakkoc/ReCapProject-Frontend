@@ -9,7 +9,8 @@
     </div>
     <div class="carousel-inner">
       <div *ngFor="let image of carImages" [class]="getCurrentImageClass(image)">
-        <img src="{{imageBasePath}}{{image.imagePath}}" class="d-block w-100" width="640" height="480"  alt="Image">
+        <img *ngIf="image.imagePath == null" src="{{ carImageDefault }}" class="d-block w-100" width="640" height="480"  alt="Image">
+        <img *ngIf="image.imagePath != null" src="{{imageBasePath}}{{image.imagePath}}" class="d-block w-100" width="640" height="480"  alt="Image">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="prev">
