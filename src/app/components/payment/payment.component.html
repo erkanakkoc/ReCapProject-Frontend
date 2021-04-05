@@ -9,6 +9,35 @@
         />
         <img src="https://img.icons8.com/color/48/000000/maestro.png" />
     </div>
+
+    <div *ngIf="cards[0].cardId>=0">
+        <h2>My Cards</h2>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Card Id</th>
+                <th scope="col">Card Number</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Expiration Date</th>
+                <th scope="col">CVV</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let card of cards">
+                <th scope="row">{{card.cardId}}</th>
+                <td>{{card.cardNumber}}</td>
+                <td>{{card.firstName}}</td>
+                <td>{{card.lastName}}</td>
+                <td>{{card.expirationDate}}</td>
+                <td>{{card.cvv}}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <br>
+    <hr>
+    <br>
     <form [formGroup]="rentalAddForm">
         <div class="mb-3 row">
             <div class="col-md-4">

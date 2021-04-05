@@ -39,7 +39,7 @@ export class RegisterComponent implements OnInit {
         this.toastrService.info(response.message)
         this.localStorageService.set("token",response.data.token);
         this.toastrService.success(response.message,"Successfully");
-        this.router.navigate(["/cars"])
+        this.router.navigate([""])
         setTimeout(function () {
           location.reload();
         });

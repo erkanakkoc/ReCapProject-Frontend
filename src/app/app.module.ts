@@ -39,6 +39,7 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
 import { ProfileComponent } from './components/profile/profile.component';
 import { UserCardsComponent } from './components/user-cards/user-cards.component';
 import { HomeComponent } from './components/home/home.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
@@ -74,7 +75,8 @@ import { HomeComponent } from './components/home/home.component';
     ChangePasswordComponent,
     ProfileComponent,
     UserCardsComponent,
-    HomeComponent
+    HomeComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

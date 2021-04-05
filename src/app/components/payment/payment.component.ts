@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Card } from 'src/app/models/card';
 import { Payment } from 'src/app/models/payment';
 import { Rental } from 'src/app/models/rental';
 import { AuthService } from 'src/app/services/auth.service';
@@ -17,6 +18,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class PaymentComponent implements OnInit {
   rentalAddForm:FormGroup
+  cards:Card[];
   rental:Rental;
   isChecked =false;
 
@@ -28,11 +30,12 @@ export class PaymentComponent implements OnInit {
     private authService:AuthService,
     private toastrService:ToastrService,
     private formBuilder:FormBuilder,
-    private cardDetailService:CardService,
+    private cardService:CardService,
     private userService:UserService
   ) { }
 
   ngOnInit(): void {
+    this.getCardsByUserId()
     this.activatedRoute.params.subscribe(params =>{
       if (params["rental"]) {
         this.rental = JSON.parse(params["rental"]);
@@ -54,7 +57,7 @@ export class PaymentComponent implements OnInit {
   CardSave(){
     if (this.isChecked == true) {
       let cardModel = Object.assign({userId:this.authService.getUserId()},this.rentalAddForm.value)
-      this.cardDetailService.saveCard(cardModel).subscribe(response => {
+      this.cardService.saveCard(cardModel).subscribe(response => {
         this.toastrService.success(response.message,"Başarılı")
       });
     }
@@ -89,6 +92,12 @@ export class PaymentComponent implements OnInit {
   updateUserFindex(){
     this.userService.updateUserFindex(this.authService.getUserId()).subscribe(response => {
       this.toastrService.info(response.message,"Information")
+    })
+  }
+
+  getCardsByUserId(){
+    this.cardService.getCardsByUserId(this.authService.getUserId()).subscribe(response => {
+      this.cards = response.data;
     })
   }
 }
