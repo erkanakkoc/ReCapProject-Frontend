@@ -15,13 +15,19 @@
                     <div class="mb-3">
                         <label for="brandId">Brand Id</label>
                         <div class="form-group">
-                            <input class="form-control" placeholder="Brand Id" type="number" id="brandId" formControlName="brandId" />
+                            <select class="form-select" aria-label="Default select example" formControlName="brandId">
+                                <option selected>Bir marka seçiniz</option>
+                                <option *ngFor="let brand of brands" [ngValue]="brand.brandId">{{brand.brandName}}</option>
+                              </select>
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="colorId">Color Id</label>
                         <div class="form-group">
-                            <input class="form-control" placeholder="Color Id" type="number" id="colorId" formControlName="colorId" />
+                            <select class="form-select" aria-label="Default select example" formControlName="colorId">
+                                <option selected>Bir renk seçiniz</option>
+                                <option *ngFor="let color of colors" [ngValue]="color.colorId">{{color.colorName}}</option>
+                              </select>
                         </div>
                     </div>
                     <div class="mb-3">
@@ -42,12 +48,23 @@
                             <input class="form-control" placeholder="Description" type="text" id="description" formControlName="description" />
                         </div>
                     </div>
+                    <div class="mb-3">
+                        <label for="findex">Findex Point:</label>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="0" type="text" id="Findex" formControlName="findex" />
+                        </div>
+                    </div>
                     <!-- <div class="mb-3">
                         <label for="imagePath">Upload Image</label>
                         <div class="form-group">
                             <input class="form-control" placeholder="Upload Image" type="file" id="imagePath" formControlName="imagePath" />
                         </div>    
                     </div>                                       -->
+                </form>
+                <form [formGroup]="imageAddForm">
+                    <div class="form-group">
+                        <input formControlName="file" type="file" (change)="uploadFile($event)" multiple>
+                    </div>
                 </form>
             </div>
             <div class="card-footer">

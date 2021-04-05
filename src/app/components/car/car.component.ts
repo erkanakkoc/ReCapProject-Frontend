@@ -21,7 +21,9 @@ export class CarComponent implements OnInit {
   carImageDefault= environment.baseUrl+"/default.jpg"
 
 
-  constructor(private carService:CarService, private activatedRoute:ActivatedRoute, private toastr: ToastrService) { }
+  constructor(private carService:CarService, 
+    private activatedRoute:ActivatedRoute, 
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
@@ -64,7 +66,7 @@ export class CarComponent implements OnInit {
       this.cars=response.data
       this.dataLoaded=true;
      if(this.cars.length == 0){
-        this.toastr.info('Arama sonuçunuza ait bir araç bulunmamaktadır.', 'Arama Sonucu');
+        this.toastr.info('There is no car as you searched.', 'Search Result');
      }
     })
   }

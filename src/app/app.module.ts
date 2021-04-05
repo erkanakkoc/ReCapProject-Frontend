@@ -38,6 +38,7 @@ import { RentalListComponent } from './components/rental-list/rental-list.compon
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { UserCardsComponent } from './components/user-cards/user-cards.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 
@@ -72,7 +73,8 @@ import { UserCardsComponent } from './components/user-cards/user-cards.component
     RentalListComponent,
     ChangePasswordComponent,
     ProfileComponent,
-    UserCardsComponent
+    UserCardsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

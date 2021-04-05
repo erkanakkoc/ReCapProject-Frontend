@@ -14,6 +14,7 @@ import { ColorListComponent } from './components/color-list/color-list.component
 import { ColorUpdateComponent } from './components/color-update/color-update.component';
 import { ColorComponent } from './components/color/color.component';
 import { CustomerComponent } from './components/customer/customer.component';
+import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -24,8 +25,8 @@ import { UserCardsComponent } from './components/user-cards/user-cards.component
 import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
-  {path:"", pathMatch:"full", component:CarComponent},
-  
+  {path:"home",component:HomeComponent},  //ana sayfa
+  {path:"",pathMatch:"full",component:HomeComponent},
   //CARS
   {path:"cars", component:CarComponent},
   {path:"cars/add", component:CarAddComponent, canActivate:[LoginGuard]},
@@ -59,8 +60,7 @@ const routes: Routes = [
   {path:"register",component:RegisterComponent},
   {path:"profile",component:ProfileComponent,canActivate:[LoginGuard]},
   {path:"cards",component:UserCardsComponent,canActivate:[LoginGuard]},
-
-  {path:'**',redirectTo:''}
+  //{path:"admin",component:AdminPanelComponent,canActivate:[LoginGuard]}
 
 ];
 

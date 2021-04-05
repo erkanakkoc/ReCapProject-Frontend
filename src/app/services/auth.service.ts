@@ -19,11 +19,13 @@ export class AuthService {
   jwtHelper:JwtHelperService = new JwtHelperService();
   userName:string;
   userId:number;
+  roles:string[];
 
   constructor(private httpClient:HttpClient,
     private localStorageService:LocalStorageService
   ) {
       this.setUserId()
+      this.setRoles();
     }
 
   
@@ -61,6 +63,21 @@ export class AuthService {
   changePassword(passwordChangeModel:PasswordChangeModel):Observable<ResponseModel>{
     //let newPath = environment.apiUrl + "auth/changepassword";
     return this.httpClient.post<ResponseModel>(environment.apiUrl + "auth/changepassword",passwordChangeModel);
+  }
+
+  setRoles(){
+    if (this.localStorageService.get("token")) {
+      var decoded = this.jwtHelper.decodeToken(this.localStorageService.get("token"));
+      var role = Object.keys(decoded).filter(x => x.endsWith("/role"))[0];
+      this.roles = (decoded[role])
+    }
+  }
+
+  isAdmin(){
+    if (this.roles.includes("admin")) {
+      return true
+    }
+    return false;
   }
 
 }

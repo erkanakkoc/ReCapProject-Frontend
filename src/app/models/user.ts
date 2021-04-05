@@ -5,5 +5,5 @@ export interface User{
     email:string;
     password:string;
     //status:boolean;
-    findex:number;
+    findexPoint:number;
 }

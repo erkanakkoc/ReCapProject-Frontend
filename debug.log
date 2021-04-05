@@ -64,3 +64,7 @@
 [0331/114028.798:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\temp\settings.dat: Eriþim engellendi. (0x5)
 [0331/125344.117:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: Boru sonlandý. (0x6D)
 [0331/125344.118:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\temp\settings.dat: Eriþim engellendi. (0x5)
+[0405/103456.618:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: Boru sonlandý. (0x6D)
+[0405/103456.621:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\temp\settings.dat: Eriþim engellendi. (0x5)
+[0405/123550.200:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: Boru sonlandý. (0x6D)
+[0405/123550.202:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\temp\settings.dat: Eriþim engellendi. (0x5)

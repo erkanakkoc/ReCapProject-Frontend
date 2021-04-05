@@ -1,4 +1,3 @@
-
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Car } from 'src/app/models/car';
@@ -12,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 import { CarDetailService } from 'src/app/services/car-detail.service';
 import { UserService } from 'src/app/services/user.service';
 import { AuthService } from 'src/app/services/auth.service';
-
+import { User } from 'src/app/models/user';
 
 
 
@@ -78,6 +77,11 @@ export class RentalComponent implements OnInit {
     this.getRentals()
   }
 
+  
+  isAuthenticated(){
+    return this.authService.isAuthenticated();
+  }
+
   getRentals() {
     this.rentalService.getRentals().subscribe(response => {
       this.rentals = response.data;
@@ -115,7 +119,7 @@ export class RentalComponent implements OnInit {
       returnDate: this.returnDate
     };
     this.router.navigate(["cars/rental/payment/", JSON.stringify(RentalModel)]);
-    this.toastr.success("Ödeme sayfasına yönlendiriliyorsunuz.", "Kiralama başarılı");
+    this.toastr.success("Redirecting to payment page.", "Successfully");
   }
   CheckStatus(carId: number) {
 
@@ -170,7 +174,7 @@ export class RentalComponent implements OnInit {
 
   getUserFindex() {
     this.userService.getUserFindexByUserId(this.authService.getUserId()).subscribe(response => {
-      this.userFindex = response.data.findex;
+      this.userFindex = response.data.findexPoint;
     })
   }
 

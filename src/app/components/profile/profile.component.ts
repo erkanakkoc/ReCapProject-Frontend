@@ -53,12 +53,12 @@ export class ProfileComponent implements OnInit {
     if (this.userUpdateForm.valid) {
       let user = Object.assign({id:this.user.userId}, this.userUpdateForm.value)
       this.userService.update(user).subscribe(response => {
-        this.toastrService.success(response.message,"Başarılı");
+        this.toastrService.success(response.message,"Successfully");
       },responseError => {
-        this.toastrService.error(responseError.error,"Hata")
+        this.toastrService.error(responseError.error,"Error")
       })
     }else{
-      this.toastrService.error("Lütfen formu tamamen doldurunuz","Hata")
+      this.toastrService.error("Please fill the form completely","Error")
     }
   }
 
@@ -80,19 +80,19 @@ export class ProfileComponent implements OnInit {
     if (this.customerUpdateForm.valid) {
       let customerModel = Object.assign({id:this.customer.customerId,userId:this.customer.userId},this.customerUpdateForm.value)
       this.customerService.update(customerModel).subscribe(response => {
-        this.toastrService.success(response.message,"Başarılı");
+        this.toastrService.success(response.message,"Successfully");
       },responseError => {
-        this.toastrService.error(responseError.error,"Hata")
+        this.toastrService.error(responseError.error,"Error")
       })
     }else{
-      this.toastrService.error("Lütfen formu tamamen doldurunuz","Hata")
+      this.toastrService.error("Please fill the form completely","Error")
     }
   }
 
   getUserFindex(){
     this.userService.getUserFindexByUserId(this.authService.getUserId()).subscribe(response => {
-      this.findex = response.data.findex;
-      console.log(response.data.findex)
+      this.findex = response.data.findexPoint;
+      console.log(response.data.findexPoint)
     })
   }
 

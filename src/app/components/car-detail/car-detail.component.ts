@@ -7,7 +7,10 @@ import { CarDetailService } from 'src/app/services/car-detail.service';
 import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
 import { RentalService } from 'src/app/services/rental.service';
+import { UserService } from 'src/app/services/user.service';
 import { environment } from 'src/environments/environment';
+import { AuthService } from 'src/app/services/auth.service';
+
 
 @Component({
   selector: 'app-car-detail',
@@ -19,6 +22,7 @@ export class CarDetailComponent implements OnInit {
   rentals:Rental[]=[];
   carImages:CarImage[]=[];
   currentImage : CarImage;
+  carId:number;
   dataLoaded = false;
   imageBasePath = environment.baseUrl;
   carImageDefault= environment.baseUrl+"/default.jpg"
@@ -28,7 +32,9 @@ export class CarDetailComponent implements OnInit {
     private carDetailService:CarDetailService,
     private activatedRoute:ActivatedRoute,
     private imageService:CarImageService,
-    private rentalService:RentalService,
+    private rentalService:RentalService, 
+    private authService:AuthService,
+    private userService:UserService
   ) { }
 
   ngOnInit(): void {
@@ -74,6 +80,14 @@ export class CarDetailComponent implements OnInit {
     } else {
       return ""
     }
+  }
+
+  isAuthenticated(){
+    return this.authService.isAuthenticated();
+  }
+
+  isAdmin(){
+    return this.authService.isAdmin();
   }
 
 }
