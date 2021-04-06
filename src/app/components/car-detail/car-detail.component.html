@@ -22,7 +22,8 @@
               <td>{{car.dailyPrice}}</td>
               <td>{{car.description}}</td>
               <td>{{car.findexPoint}}</td>
-              <td><app-rental></app-rental></td>
+              <td *ngIf="isAuthenticated()"><app-rental></app-rental></td>
+              <td *ngIf="!isAuthenticated()">You need log-in </td>
                 <!-- <td><button routerLink="/rental/{{car.carId}}" type="button" class="btn btn-success">Rent</button></td>
          -->
           </tr>
