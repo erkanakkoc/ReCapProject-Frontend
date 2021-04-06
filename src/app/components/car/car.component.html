@@ -1,36 +1,93 @@
-<div class="row">
-  <div class="col-md-3">
-    <app-car-filter></app-car-filter>
-  </div>
-  <div class="col-md-9">
-    <h4 style="text-align: center;"><b>CAR LIST</b></h4>
+<div class="site-section bg-light" style="margin-top: -100px;">
+  <div class="container">
     <div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
+    <app-car-filter></app-car-filter>
+    <br>
+    <div class="row" *ngIf="dataLoaded==true">
+      <div *ngFor="let car of cars" class="col-lg-4 col-md-6 mb-4">
+        <div class="item-1">
+            <a href="#">
+              <img *ngIf="car.imagePath == null" src="{{ carImageDefault }}" alt="Image" width="500" height="300" class="card-img-top">
+              <img *ngIf="car.imagePath != null" src="{{imageBasePath}}{{car.imagePath}}" width="500" height="300" alt="Image" class="card-img-top">
+            </a>
+            <div class="item-1-contents">
+              <div class="text-center">
+              <h3><a href="#">{{car.brandName}} - {{car.carName}}</a></h3>
+              <div class="rating">
+                <span class="icon-star text-warning"></span>
+                <span class="icon-star text-warning"></span>
+                <span class="icon-star text-warning"></span>
+                <span class="icon-star text-warning"></span>
+                <span class="icon-star text-warning"></span>
+              </div>
+              <div class="rent-price"><span>${{car.dailyPrice}}/</span>day</div>
+              </div>
+              <ul class="specs">
+                <li>
+                  <span>Color</span>
+                  <span class="spec">{{car.colorName}}</span>
+                </li>
+                <li>
+                  <span>Model Year</span>
+                  <span class="spec">{{car.modelYear}}</span>
+                </li>
+                
+                <li>
+                  <span>Findex Point</span>
+                  <span class="spec">{{car.findexPoint}}</span>
+                </li>
+                <li>
+                  <span>Minium age</span>
+                  <span class="spec">18 years</span>
+                </li>
+              </ul>
+              <div class="d-flex action">
+                <a routerLink="/cars/detail/{{car.carId}}" class="btn btn-primary mx-auto">Rent Now</a>
+              </div>
+            </div>
+          </div>
+      </div>
 
-    <div class="row" style="margin-top: 5px;" *ngIf="dataLoaded==true">
-      <div *ngFor="let car of cars" class="card" style="width: 18rem;">
-        <img *ngIf="car.imagePath == null" src="{{ carImageDefault }}" class="card-img-top" width="320" height="200" alt={{car.description}} />
-        <img *ngIf="car.imagePath != null" src="{{imageBasePath}}{{car.imagePath}}" class="card-img-top" width="320" height="200" alt={{car.description}} />
-        <div class="card-body">
-          <h5 class="card-title d-flex justify-content-center">{{car.carName}}</h5>
-          <p class="card-text d-flex justify-content-center">{{car.description}}</p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Brand: {{car.brandName}}</li>
-          <li class="list-group-item">Color: {{car.colorName}}</li>
-          <li class="list-group-item">Model Year: {{car.modelYear}}</li>
-          <li class="list-group-item">Daily Price: {{car.description}}</li>
-          <li class="list-group-item">Findex: {{car.findexPoint}}</li>
-        </ul>
-        <div class="card-body">
-          <section style="float:left">
-            <button routerLink="/cars/detail/{{car.carId}}" type="button" class="btn btn-primary">Details</button>
-          </section>
-          <section style="float: right">
-            <button type="button" class="btn btn-primary">Rent</button>
-          </section>
+
+
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <app-car-filter></app-car-filter>
+    </div>
+    <div class="col-md-9">
+      <h4 style="text-align: center;"><b>CAR LIST</b></h4>
+      <div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+  
+      <div class="row" style="margin-top: 5px;" *ngIf="dataLoaded==true">
+        <div *ngFor="let car of cars" class="card" style="width: 18rem;">
+          <img *ngIf="car.imagePath == null" src="{{ carImageDefault }}" class="card-img-top" width="320" height="200" alt={{car.description}} />
+          <img *ngIf="car.imagePath != null" src="{{imageBasePath}}{{car.imagePath}}" class="card-img-top" width="320" height="200" alt={{car.description}} />
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-center">{{car.carName}}</h5>
+            <p class="card-text d-flex justify-content-center">{{car.description}}</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Brand: {{car.brandName}}</li>
+            <li class="list-group-item">Color: {{car.colorName}}</li>
+            <li class="list-group-item">Model Year: {{car.modelYear}}</li>
+            <li class="list-group-item">Daily Price: {{car.dailyPrice}}</li>
+            <li class="list-group-item">Findex: {{car.findexPoint}}</li>
+          </ul>
+          <div class="card-body">
+            <section style="float:left">
+              <button routerLink="/cars/detail/{{car.carId}}" type="button" class="btn btn-primary">Details</button>
+            </section>
+            <section style="float: right">
+              <button type="button" class="btn btn-primary">Rent</button>
+            </section>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+</div> -->

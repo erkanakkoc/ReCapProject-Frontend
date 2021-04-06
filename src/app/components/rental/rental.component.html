@@ -1,12 +1,12 @@
 <div *ngIf="car">
   <div class="findex-control" *ngIf="car.findexPoint<=userFindex || !isAuthenticated()">
-    <button style="width: 100%;" *ngIf="rentable" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" class="mybtn btn btn-primary">Kirala</button>
+    <button style="width: 100%;" *ngIf="rentable" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" class="mybtn btn btn-primary">Rent</button>
     <div style="margin-top: 10px;" *ngIf="!rentable" class="alert alert-danger">
-      Bu araç zaten kiralanmış
+      This car isn't available
     </div>
   </div>
 <div style="margin-top: 10px;" *ngIf="car.findexPoint>userFindex" class="alert alert-danger">
-  Findex puanınız bu aracı kiralamaya yetmiyor
+  Your Findex point isn't enough to rent this car.
 </div>
 <div *ngIf="car" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -32,7 +32,7 @@
               <label for="rent-date" class="form-label">Rent Date :</label>
             </div>
             <div class="col-md-9">
-              <input (change)="onChangeEvent($event); checkReturnDate()" min="{{minDate}}" [(ngModel)]="rentDate" type="date" class="form-control" id="rent-date" placeholder="Bir gün seçiniz.">
+              <input (change)="onChangeEvent($event); checkReturnDate()" min="{{minDate}}" [(ngModel)]="rentDate" type="date" class="form-control" id="rent-date" placeholder="Select a day.">
             </div>
           </div>
         </div>
@@ -42,14 +42,14 @@
               <label for="return-date" class="form-label">Return Date :</label>
             </div>
             <div class="col-md-9">
-              <input disabled='{{!firstDateSelected}}' min="{{minDate}}" max="{{maxDate}}" [(ngModel)]="returnDate" type="date" class="form-control" id="return-date" placeholder="Bir gün seçiniz.">
+              <input disabled='{{!firstDateSelected}}' min="{{minDate}}" max="{{maxDate}}" [(ngModel)]="returnDate" type="date" class="form-control" id="return-date" placeholder="Select a day.">
             </div>
           </div>
         </div>
         <div class="customers">
           <div class="row">
             <div class="col-md-3">
-              Müşteriler :
+              Customers :
             </div>
             <div class="col-md-9">
               <select  #selectCustomer (change)="setCustomerId(selectCustomer.value)" class="form-select" aria-label="Default select example">

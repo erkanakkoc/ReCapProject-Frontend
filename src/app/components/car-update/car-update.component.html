@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <div class="col-md-12">
       <div class="card">
         <div class="card-header"><h5 class="title">Car Update</h5></div>
@@ -32,14 +32,7 @@
                 <label for="description">Description</label>
                 <input type="text" id="description" formControlName="description" class="form-control" placeholder="Description" />
             </div>
-  
-            <!-- <div *ngIf="errorMessages">
-              <label
-                class="text-danger"
-                *ngFor="let errorMessage of errorMessages"
-                >{{ errorMessage }}<br
-              /></label>
-            </div> -->
+
           </form>
         </div>
         <div class="card-footer">
@@ -109,4 +102,93 @@
         <td>{{ color.colorName }}</td>
       </tr>
     </tbody>
-  </table>
+  </table> -->
+
+
+  <div class="container">
+    <div class="content row">
+      <div class="col-md-8">
+          <div class="card" >
+              <div class="card-header" style="text-align: center;">
+                  <h5 style="color: black;">Update the Car</h5>
+              </div>
+              <div class="card-body">
+                  <form [formGroup]="carUpdateForm" *ngIf="car">
+                      <div class="form-group mb-3">
+                          <label class="col-form-label">Select a Brand</label>
+                          <select formControlName="brandId" class="form-select" aria-label="Default select example">
+                              <option *ngFor="let brand of brands" [ngValue]="brand.brandId">{{brand.brandName}}</option>
+                          </select>
+                      </div>
+                      <div class="form-group mb-3">
+                        <label class="col-form-label">Car Model:</label>
+                        <input type="text" id="carName" formControlName="carName" class="form-control">
+                    </div>
+                      <div class="form-group mb-3">
+                          <label class="col-form-label">Select a Color</label>
+                          <select formControlName="colorId" class="form-select" aria-label="Default select example">
+                              <option *ngFor="let color of colors" [ngValue]="color.colorId">{{color.colorName}}</option>
+                          </select>
+                      </div>
+                      <div class="form-group mb-3">
+                          <label class="col-form-label">Daily Price:</label>
+                          <input type="number" id="dailyPrice" formControlName="dailyPrice" class="form-control">
+                      </div>
+                      <div class="form-group mb-3">
+                        <label class="col-form-label">Model Year:</label>
+                        <input type="text" id="modelYear" formControlName="modelYear" class="form-control">
+                    </div>
+                      <div class="form-group mb-3">
+                          <label class="col-form-label">Description:</label>
+                          <input type="text" id="description" formControlName="description" class="form-control">
+                      </div>
+                      <div class="form-group mb-3">
+                          <label class="col-form-label">Minimum Findex Point:</label>
+                          <input type="number" id="findexPoint" formControlName="findexPoint" class="form-control">
+                      </div>
+                  </form>
+                  <form [formGroup]="imageUpdateForm" *ngIf="car">
+                      <div class="form-group">
+                          <input type="file" formControlName="file" (change)="uploadFile($event)">
+                      </div>
+                  </form>
+                  <div class="images-Update" style="margin-top: 10px;">
+                      <p>Select the image that you want to change :</p>
+                      <ul style="list-style: none;">
+                          <li [class]="getCurrentImageClass(image)" *ngFor="let image of carImages" style="float: left; margin-left: 10px;" (click)="setCurrentCarImageId(image)">
+                              <img src="{{imageBasePath}}{{image.imagePath}}" width="100px" alt="">
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="card-footer">
+                  <button style="width: 100%;" class="btn btn-fill btn-primary mybtn" (click)="update()">Update</button>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div *ngIf="car" class="card">
+              <div class="card-header" style="text-align: center;">
+                  <h5>Car Details</h5>
+              </div>
+              <div class="card-body">
+                  <div class="card-image-top">
+                      <img *ngIf="car.imagePath==null" src="{{carImageDefault}}" alt="{{car.carId}}" style="width: 100%;">
+                      <img *ngIf="car.imagePath!=null" style="width: 100%; height: 100%; border-radius: 4px;" src="{{imageBasePath}}{{car.imagePath}}" alt="">
+                  </div>
+                  <div class="card-detail mt-3">
+                      <ul style="text-align: center; padding-left: 8px; padding-right: 8px;" class="list-group-flush">
+                          <li class="list-group-item"><strong style="float: left;">Markası :</strong>{{car.brandName}}</li>
+                          <li class="list-group-item"><strong style="float: left;">Modeli :</strong>{{car.carName}}</li>
+                          <li class="list-group-item"><strong style="float: left;">Rengi :</strong>{{car.colorName}}</li>
+                          <li class="list-group-item"><strong style="float: left;">Modeli :</strong>{{car.modelYear}}</li>
+                          <li class="list-group-item"><strong style="float: left;">Günlük Ücreti :</strong>{{car.dailyPrice |currency}}</li>
+                          <li class="list-group-item"><strong style="float: left;">Açıklaması :</strong>{{car.description}}</li>
+                          <li class="list-group-item"><strong style="float: left;">Findex :</strong>{{car.findexPoint}}</li>
+                        </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>

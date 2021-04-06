@@ -15,6 +15,8 @@ import { environment } from 'src/environments/environment';
 export class NaviComponent implements OnInit {
 
 
+  
+  homePage = environment.baseUrl
   currentUserId:number;
   user:User;
 
@@ -34,7 +36,7 @@ export class NaviComponent implements OnInit {
   }
   logOut(){
     this.localStorageService.clean();
-    this.router.navigate(["/cars"])
+    this.router.navigate([""])
   }
   getUserDetail(){
     this.userService.getByUserId(this.currentUserId).subscribe(response => {

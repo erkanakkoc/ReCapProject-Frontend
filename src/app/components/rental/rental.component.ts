@@ -152,7 +152,7 @@ export class RentalComponent implements OnInit {
       let returnYear = Number.parseInt(returnDate.getFullYear().toString())
       let rentYear = Number.parseInt(rentDate.getFullYear().toString())
 
-      let result = ((returnDay - rentDay) + ((returnMonth - rentMonth) * 30) + ((returnYear - rentYear) * 365) + 1) * this.car.dailyPrice
+      let result = ((returnDay - rentDay) + ((returnMonth - rentMonth) * 30) + ((returnYear - rentYear) * 365)) * this.car.dailyPrice
 
       if (result > 0) {
         return result;

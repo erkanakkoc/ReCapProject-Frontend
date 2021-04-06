@@ -43,21 +43,24 @@
 <div class="card text-center">
     <div class="card-body">
         <ul class="list-group mb-1">
-            <li class="list-group-item active">FİLTREYE GÖRE GETİR</li>
+            <li class="list-group-item active">FILTER THE CARS</li>
         </ul>
         <label for="brandFilter">Select A Brand</label>
         <select [(ngModel)]="brandFilter" class="form-select" aria-label="Default select example">
-            <option [selected]="IsCurrentBrandNull()" [value]=undefined>Bir marka seçiniz</option>
+            <option [selected]="IsCurrentBrandNull()" [value]=undefined>All Brands</option>
             <option *ngFor="let brand of brands" [value]="brand.brandId" [selected]="getSelectedBrand(brand)">{{brand.brandName}}</option>
           </select>
         <label for="colorFilter">Select A Color</label>
         <select [(ngModel)]="colorFilter" class="form-select" aria-label="Default select example">
-            <option [selected]="IsCurrentColorNull()" [value]=undefined>Bir renk seçiniz</option>
+            <option [selected]="IsCurrentColorNull()" [value]=undefined>All Colors</option>
             <option *ngFor="let color of colors" [value]="color.colorId" [selected]="getSelectedColor(color)">{{color.colorName}}</option>
         </select>
     </div>
     <div class="card-footer text-muted d-flex justify-content-md-between">
-        <button [routerLink]="GetRouterLink()" type="button" class="btn btn-primary mybtn">Filtrele</button>
-        <a routerLink="/cars" class="btn btn-danger">Temizle</a>
+        <button *ngIf="brandFilter && colorFilter"  [routerLink]="GetRouterLink()" type="button" class="btn btn-primary mybtn">Filter</button>
+        <button *ngIf="brandFilter && !colorFilter"  routerLink="/cars/brand/{{brandFilter}}" type="button" class="btn btn-primary mybtn">Filter</button>
+        <button *ngIf="!brandFilter && colorFilter"  routerLink="/cars/color/{{colorFilter}}" type="button" class="btn btn-primary mybtn">Filter</button>
+        <button *ngIf="!brandFilter && !colorFilter"  routerLink="/cars" type="button" class="btn btn-primary mybtn">Filter</button>
+        <a routerLink="/cars" class="btn btn-danger">Clear</a>
     </div>
 </div>

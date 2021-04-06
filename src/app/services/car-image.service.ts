@@ -21,7 +21,7 @@ export class CarImageService {
   //-----------------------------------
 
   getCarsImages():Observable<ListResponseModel<CarImage>>{
-    let newPath = environment.apiUrl + "carimages/getall";
+    let newPath = environment.apiUrl + "carImages/getall";
     return this.httpClient.get<ListResponseModel<CarImage>>(newPath);
   }
 
@@ -31,7 +31,7 @@ export class CarImageService {
     formData.append("Image",imageFile)
 
     //let newPath = environment.apiUrl + "carimages/add"
-    return this.httpClient.post<ResponseModel>(environment.apiUrl + "carimages/add",formData);
+    return this.httpClient.post<ResponseModel>(environment.apiUrl + "carImages/add",formData);
   }
 
   update(carId:number,imageFile:File,imageId:number):Observable<ResponseModel>{
@@ -42,6 +42,6 @@ export class CarImageService {
     console.log(formData)
 
     //let newPath = environment.apiUrl + "carimages/update";
-    return this.httpClient.post<ResponseModel>(environment.apiUrl + "carimages/update",formData);
+    return this.httpClient.post<ResponseModel>(environment.apiUrl + "carImages/update",formData);
   }
 }

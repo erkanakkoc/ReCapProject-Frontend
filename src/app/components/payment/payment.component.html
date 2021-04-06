@@ -1,90 +1,92 @@
-<div>
-    <caption>
-        Ödeme İşlemleri
-    </caption>
-    <div class="icons">
-        <img src="https://img.icons8.com/color/48/000000/visa.png" />
-        <img
-          src="https://img.icons8.com/color/48/000000/mastercard-logo.png"
-        />
-        <img src="https://img.icons8.com/color/48/000000/maestro.png" />
-    </div>
-
-    <div *ngIf="cards[0].cardId>=0">
-        <h2>My Cards</h2>
-        <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Card Id</th>
-                <th scope="col">Card Number</th>
-                <th scope="col">First Name</th>
-                <th scope="col">Last Name</th>
-                <th scope="col">Expiration Date</th>
-                <th scope="col">CVV</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let card of cards">
-                <th scope="row">{{card.cardId}}</th>
-                <td>{{card.cardNumber}}</td>
-                <td>{{card.firstName}}</td>
-                <td>{{card.lastName}}</td>
-                <td>{{card.expirationDate}}</td>
-                <td>{{card.cvv}}</td>
-              </tr>
-            </tbody>
-          </table>
-    </div>
-    <br>
-    <hr>
-    <br>
-    <form [formGroup]="rentalAddForm">
-        <div class="mb-3 row">
-            <div class="col-md-4">
-                <label for="cardNumber" class="form-label">Kredi Kartı Numaranızı Giriniz :</label>
-            </div>
-            <div class="col-md-8">
-                <input formControlName="cardNumber" type="text" class="form-control" id="cardNumber" placeholder="örn: 8109771495247556">
-            </div>
+<div class="container">
+    <div>
+        <caption>
+            Ödeme İşlemleri
+        </caption>
+        <div class="icons">
+            <img src="https://img.icons8.com/color/48/000000/visa.png" />
+            <img
+              src="https://img.icons8.com/color/48/000000/mastercard-logo.png"
+            />
+            <img src="https://img.icons8.com/color/48/000000/maestro.png" />
         </div>
-        <div class="mb-3 row">
-            <div class="col-md-4">
-                <label for="firstName" class="form-label">Kart Sahibinin Adı : </label>
-            </div>
-            <div class="col-md-8">
-                <input formControlName="firstName" type="text" class="form-control" id="firstName" placeholder="örn: Mehmet">
-            </div>
+    
+        <div *ngIf="cards[0].cardId>=0">
+            <h2>My Cards</h2>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Card Id</th>
+                    <th scope="col">Card Number</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Expiration Date</th>
+                    <th scope="col">CVV</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let card of cards">
+                    <th scope="row">{{card.cardId}}</th>
+                    <td>{{card.cardNumber}}</td>
+                    <td>{{card.firstName}}</td>
+                    <td>{{card.lastName}}</td>
+                    <td>{{card.expirationDate}}</td>
+                    <td>{{card.cvv}}</td>
+                  </tr>
+                </tbody>
+              </table>
         </div>
-        <div class="mb-3 row">
-            <div class="col-md-4">
-                <label for="lastName" class="form-label">Kart Sahibinin Soyadı : </label>
-            </div>
-            <div class="col-md-8">
-                <input formControlName="lastName" type="text" class="form-control" id="lastName" placeholder="örn: Yıldız">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="mb-3">
-                    <label for="cvv" class="form-label">Güvenlik kodu : </label>
-                    <input formControlName="cVV" type="number" class="form-control" id="cvv" placeholder="örn: 123">
+        <br>
+        <hr>
+        <br>
+        <form [formGroup]="rentalAddForm">
+            <div class="mb-3 row">
+                <div class="col-md-4">
+                    <label for="cardNumber" class="form-label">Kredi Kartı Numaranızı Giriniz :</label>
+                </div>
+                <div class="col-md-8">
+                    <input formControlName="cardNumber" type="text" class="form-control" id="cardNumber" placeholder="örn: 8109771495247556">
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="mb-3">
-                    <label for="expirationDate" class="form-label">Son Kullanım Tarihi : </label>
-                    <input formControlName="expirationDate" type="text" class="form-control" id="expirationDate" placeholder="örn: 20/27">
-                </div>   
+            <div class="mb-3 row">
+                <div class="col-md-4">
+                    <label for="firstName" class="form-label">Kart Sahibinin Adı : </label>
+                </div>
+                <div class="col-md-8">
+                    <input formControlName="firstName" type="text" class="form-control" id="firstName" placeholder="örn: Mehmet">
+                </div>
             </div>
+            <div class="mb-3 row">
+                <div class="col-md-4">
+                    <label for="lastName" class="form-label">Kart Sahibinin Soyadı : </label>
+                </div>
+                <div class="col-md-8">
+                    <input formControlName="lastName" type="text" class="form-control" id="lastName" placeholder="örn: Yıldız">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="cvv" class="form-label">Güvenlik kodu : </label>
+                        <input formControlName="cVV" type="number" class="form-control" id="cvv" placeholder="örn: 123">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="expirationDate" class="form-label">Son Kullanım Tarihi : </label>
+                        <input formControlName="expirationDate" type="text" class="form-control" id="expirationDate" placeholder="örn: 20/27">
+                    </div>   
+                </div>
+            </div>
+        </form>
+        <div class="check">
+            <div class="form-check form-switch">
+                <input [(ngModel)]="isChecked" class="form-check-input" type="checkbox" id="isChecked" checked>
+                <label class="form-check-label" for="isChecked">Kartımı kaydet</label>
+              </div>
         </div>
-    </form>
-    <div class="check">
-        <div class="form-check form-switch">
-            <input [(ngModel)]="isChecked" class="form-check-input" type="checkbox" id="isChecked" checked>
-            <label class="form-check-label" for="isChecked">Kartımı kaydet</label>
-          </div>
-    </div>
-    <div>
-        <button (click)="checkPayment()" type="button" class="btn btn-primary mybtn">İşlemi Tamamla</button>
+        <div>
+            <button (click)="checkPayment()" type="button" class="btn btn-primary mybtn">İşlemi Tamamla</button>
+        </div>
     </div>
 </div>

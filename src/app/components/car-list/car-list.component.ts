@@ -6,6 +6,7 @@ import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
 import { environment } from 'src/environments/environment';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-car-list',
@@ -20,7 +21,7 @@ export class CarListComponent implements OnInit {
   dataLoaded = false;
 
 
-  constructor(private carService:CarService, private activatedRoute:ActivatedRoute, private toastr: ToastrService) { }
+  constructor(private carService:CarService, private authService:AuthService, private activatedRoute:ActivatedRoute, private toastr: ToastrService) { }
 
   ngOnInit(): void {
 
@@ -37,6 +38,10 @@ export class CarListComponent implements OnInit {
 
     })
 
+  }
+
+  isAuthenticated(){
+    return this.authService.isAuthenticated();
   }
 
   getCars(){

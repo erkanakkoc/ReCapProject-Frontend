@@ -45,7 +45,7 @@ export class CarAddComponent implements OnInit {
       modelYear: ["",Validators.required],
       dailyPrice: ["",Validators.required],
       description: ["",Validators.required],
-      findex:["",Validators.required]
+      findexPoint:["",Validators.required]
      // imagePath: ["",Validators.required]
     })
   }
@@ -53,19 +53,20 @@ export class CarAddComponent implements OnInit {
   add(){
     if (this.carAddForm.valid) {
       let carModel = Object.assign({},this.carAddForm.value)
-      this.carService.add(carModel).subscribe(response=>{
-        this.toastrService.success(response.message, "Successfully")
-      }, responseError=>{
-        if(responseError.error.ValidationErrors.length>0)
-        {
-          for (let i = 0; i < responseError.error.ValidationErrors.length; i++) 
-          {
-            this.toastrService.error(responseError.error.ValidationErrors[i].ErrorMessage,"Validation Error")
+      this.carService.add(carModel).subscribe(response => {
+        this.toastrService.success(response.message,"Successfully")
+        this.savedCarId = response.data.carId;
+        this.addImage()
+        this.toastrService.success("Image(s) added.","Successfully")
+      },responseError => {
+        if (responseError.error.ValidationErrors.length>0) {
+          for (let i = 0; i < responseError.error.ValidationErrors.length; i++) {
+            this.toastrService.error(responseError.error.ValidationErrors[i].ErrorMessage,"Doğrulama hatası");
           }
         }
       })
     }else{
-      this.toastrService.error("Fill the Form Completly","Attention")
+      this.toastrService.error("Formunuz eksik","Hata");
     }
   }
   getBrands(){

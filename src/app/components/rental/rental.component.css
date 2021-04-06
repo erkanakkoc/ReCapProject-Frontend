@@ -7,8 +7,7 @@ caption{
     border-top-right-radius: 4px;
 }
 button{
-    display: inline-block;
-    margin-top: 10px;
+    display: inline-block;  
 }
 
 .customers{
